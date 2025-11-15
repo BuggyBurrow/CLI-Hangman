@@ -4,7 +4,7 @@ def main():
     print(f"Welcome to Buggy Hangman. Let's hang {criminal_name}")
 
     secret_word = "buggy"
-    guesses = []
+    guesses = set()
 
 def prompt_char () -> str:
     while True:

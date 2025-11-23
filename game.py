@@ -27,3 +27,9 @@ class Game:
 
     def update_attempts(self):
         self.attempts = len(self.guesses - set(self.secret_word))
+    
+    def get_incorrect_guesses(self) -> str:
+        incorrect_guesses = ""
+        for char in self.guesses - set(self.secret_word):
+            incorrect_guesses += char + " "
+        return incorrect_guesses

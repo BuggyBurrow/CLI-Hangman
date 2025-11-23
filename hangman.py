@@ -20,17 +20,19 @@ def main():
 
         elif game.check_loss():
             print("You lost!")
+            print(f"The correct word was {game.secret_word}")
             print()
             game.losses += 1
             prompt_play_again(game)
             continue
 
-        game.add_guess(prompt_char())
+        game.add_guess(prompt_char(game))
         game.update_attempts()
         
 
-def prompt_char () -> str:
+def prompt_char(game) -> str:
     while True:
+        print(f"Incorrect guesses: {game.get_incorrect_guesses()}")
         user_input = input("Choose a letter: ")
         if user_input and user_input[0].isalpha():       
             return user_input[0].lower()
@@ -45,6 +47,7 @@ def prompt_play_again(game):
             print("Thank you for playing Buggy Hangman")
             sys.exit()
         elif user_input and user_input[0].lower() == 'y':
+            print("Great! Let's play again")
             game.reset_game(get_random_word())
             return
 

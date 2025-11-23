@@ -12,6 +12,4 @@ def read_nth_word_from_file(num: int) -> str:
         for _ in range(num):
             word = file.readline()
     
-    return word
-
-print(get_random_word())
+    return word.strip()
